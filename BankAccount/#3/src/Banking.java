@@ -1,10 +1,11 @@
 import java.time.LocalDateTime;
 import java.util.LinkedList;
+import java.util.List;
 
 public class Banking implements FinancialAccount {
 
     private int balance = 0;
-    private final LinkedList<Transaction> transactions = new LinkedList<>();
+    private List<Transaction> transactions = new LinkedList<>();
 
     public int getBalance() {
         return balance;
@@ -14,7 +15,11 @@ public class Banking implements FinancialAccount {
         this.balance = balance;
     }
 
-    public LinkedList<Transaction> getTransactions() {
+    public void setTransactions(List<Transaction> transactions){
+        this.transactions = transactions;
+    }
+
+    public List<Transaction> getTransactions() {
         return transactions;
     }
 
@@ -39,6 +44,8 @@ public class Banking implements FinancialAccount {
 
     @Override
     public void printStatement() {
-
+        System.out.println("Balance: " + balance);
+        System.out.println("*********************");
+        System.out.println(transactions.toString());
     }
 }

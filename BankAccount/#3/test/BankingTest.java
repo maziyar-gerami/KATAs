@@ -1,11 +1,14 @@
 import org.junit.jupiter.api.Test;
 
+import java.time.LocalDateTime;
+import java.util.LinkedList;
+
 import static org.junit.jupiter.api.Assertions.*;
 
-public class BankingTest {
+class BankingTest {
 
     @Test
-    public void depositTest_negativeAmount() {
+    void depositTest_negativeAmount() {
         int amount = -10;
         Banking bank = new Banking();
         var throwable = assertThrows(IllegalArgumentException.class, () -> bank.deposit(amount));
@@ -13,7 +16,7 @@ public class BankingTest {
     }
 
     @Test
-    public void depositTest_recordAdded() {
+    void depositTest_recordAdded() {
         int amount = 10;
         Banking bank = new Banking();
 
@@ -29,7 +32,7 @@ public class BankingTest {
     }
 
     @Test
-    public void withdrawTest_negativeAmount() {
+    void withdrawTest_negativeAmount() {
         int amount = -10;
         Banking bank = new Banking();
 
@@ -38,7 +41,7 @@ public class BankingTest {
     }
 
     @Test
-    public void withdrawTest_balanceNotEnough() {
+    void withdrawTest_balanceNotEnough() {
         int amount = 10;
         Banking bank = new Banking();
         int before = bank.getBalance();
@@ -49,7 +52,7 @@ public class BankingTest {
     }
 
     @Test
-    public void withdrawTest_balanceEnough() {
+    void withdrawTest_balanceEnough() {
         int balance = 100;
         int amount = 10;
         Banking bank = new Banking();
@@ -62,5 +65,17 @@ public class BankingTest {
         assertEquals(1, bank.getTransactions().size());
         assertEquals(-amount, bank.getTransactions().getFirst().getAmount());
         assertNotNull(bank.getTransactions().getFirst().getDate());
+    }
+
+    @Test
+    void printStatement_successfully(){
+        LinkedList<Transaction> transactions = new LinkedList<>();
+        transactions.add(new Transaction(10, LocalDateTime.MIN));
+        transactions.add(new Transaction(20, LocalDateTime.MAX));
+
+        Banking bank = new Banking();
+        bank.setTransactions(transactions);
+
+        assertDoesNotThrow(bank::printStatement);
     }
 }

@@ -1,6 +1,10 @@
 public class Main{
 
     public static void main(String[] args){
-        System.out.println("Hello world");
+        Banking bank = new Banking();
+        bank.deposit(100);
+        bank.deposit(200);
+        bank.withdraw(50);
+        bank.printStatement();
     }
 }
