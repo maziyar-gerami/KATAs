@@ -16,7 +16,7 @@ class Grocery {
         int sum = items.stream()
                 .map(e ->
                         (e.discount != null)
-                                ? e.price - e.price * e.discount()/100
+                                ? e.price - e.price * e.discount() / 100
                                 : e.price
                 ).mapToInt(Integer::intValue).sum();
         return sum - (double) (sum * tax) / 100;

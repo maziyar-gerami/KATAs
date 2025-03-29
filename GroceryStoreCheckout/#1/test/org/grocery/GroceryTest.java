@@ -2,7 +2,6 @@ package org.grocery;
 
 import org.junit.Test;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
@@ -16,7 +15,7 @@ public class GroceryTest {
                 new Grocery.Item("Milk", 7, 0));
 
         Grocery grocery = new Grocery(items, 10);
-        assertEquals(9.0 , grocery.checkout(), 0);
+        assertEquals(9.0, grocery.checkout(), 0);
     }
 
     @Test
@@ -26,8 +25,6 @@ public class GroceryTest {
                 new Grocery.Item("Milk", 7, 0));
 
         Grocery grocery = new Grocery(items, 10);
-        assertEquals(8.1 , grocery.checkout(), 0);
+        assertEquals(8.1, grocery.checkout(), 0);
     }
-
-
 }
