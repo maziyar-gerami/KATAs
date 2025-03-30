@@ -22,9 +22,3 @@ The goal is to find the most efficient way to reduce the number to zero.
 
 - **Git**: Ensure you have Git installed.
 - **JDK 21**: Ensure you have JDK 21 installed (if applicable).
-
-### Clone the Repository
-
-```bash
-git clone https://github.com/your-username/ReduceNumberToZero.git
-cd ReduceNumberToZero
