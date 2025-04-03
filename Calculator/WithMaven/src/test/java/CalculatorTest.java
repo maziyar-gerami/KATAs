@@ -22,6 +22,7 @@ class CalculatorTest {
         double a = 3;
         double b = 0;
         Calculator calc = new Calculator(a, b);
+
         assertThrows(IllegalArgumentException.class, calc::divide);
     }
 
@@ -31,6 +32,7 @@ class CalculatorTest {
         double b = 3;
         Calculator calc = new Calculator(a, b);
         double result = calc.divide();
+
         assertEquals(2, result, 0.0001);
     }
 
