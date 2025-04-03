@@ -22,4 +22,8 @@ public class Calculator {
     public double minus() {
         return a - b;
     }
+
+    public double multiply() {
+        return a * b;
+    }
 }

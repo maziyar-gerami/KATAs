@@ -43,4 +43,14 @@ class CalculatorTest {
 
         assertEquals(-1, result, 0.0001);
     }
+
+    @Test
+    void testCalculator_whenActionIsMultiply_thenMultiplicationOfNumbers() {
+        double a = 3;
+        double b = 4;
+        Calculator calc = new Calculator(a, b);
+        double result = calc.multiply();
+
+        assertEquals(12, result, 0.0001);
+    }
 }
