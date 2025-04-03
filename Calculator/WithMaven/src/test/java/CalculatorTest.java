@@ -33,4 +33,14 @@ class CalculatorTest {
         double result = calc.divide();
         assertEquals(2, result, 0.0001);
     }
+
+    @Test
+    void testCalculator_whenActionIsMinus_thenSubtractionOfNumbers() {
+        double a = 3;
+        double b = 4;
+        Calculator calc = new Calculator(a, b);
+        double result = calc.minus();
+
+        assertEquals(-1, result, 0.0001);
+    }
 }

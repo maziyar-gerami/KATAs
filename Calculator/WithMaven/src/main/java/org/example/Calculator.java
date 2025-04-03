@@ -18,4 +18,8 @@ public class Calculator {
             throw new IllegalArgumentException();
         return a/b;
     }
+
+    public double minus() {
+        return a - b;
+    }
 }
