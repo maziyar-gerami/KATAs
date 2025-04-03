@@ -13,4 +13,8 @@ public class Calculator {
     public double sum() {
         return a + b;
     }
+
+    public double divide() {
+        throw new IllegalArgumentException();
+    }
 }
