@@ -2,7 +2,7 @@ package org.example;
 
 public class PrimeCheck {
 
-    public boolean isPrime(int input) {
+    public static boolean isPrime(int input) {
 
         double squared = Math.sqrt(input);
 

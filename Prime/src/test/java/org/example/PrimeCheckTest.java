@@ -7,6 +7,20 @@ import static org.junit.jupiter.api.Assertions.*;
 class PrimeCheckTest {
 
     @Test
-    void isPrime() {
+    void whenInput_isNotPrime() {
+        int input = 4;
+
+        boolean result = PrimeCheck.isPrime(input);
+
+        assertFalse(result);
+    }
+
+    @Test
+    void whenInput_isPrime(){
+        int input = 3;
+
+        boolean res = PrimeCheck.isPrime(input);
+
+        assertTrue(res);
     }
 }
