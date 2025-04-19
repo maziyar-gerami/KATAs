@@ -1,3 +1,4 @@
+import org.example.Balancer;
 import org.junit.jupiter.api.Test;
 
 public class BalancerTest {
