@@ -2,7 +2,12 @@ public class DetectPrimeNumbersbyTDDTest {
 
     @Test
     public void testDetector_withPrimeNumbers(){
-        assertTrue(Detect_Prime_Numbers_TDD.detector(11));
+        assertTrue(DetectPrimeNumbersbyTDD.detector(11));
+    }
+
+    @Test
+    public void testDetector_withEdgeCase1() {
+        assertFalse(DetectPrimeNumbersbyTDD.detector(1));
     }
 
 }
