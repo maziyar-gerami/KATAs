@@ -22,6 +22,6 @@ public class DetectPrimeNumbersTest {
 
     @Test
     public void testDetector_withNegative() {
-        assertThrows(IllegalArgumentException.class, () -> Detect_Prime_Numbers.detector(-5));
+        assertThrows(IllegalArgumentException.class, () -> DetectPrimeNumbers.detector(-5));
     }
 }
