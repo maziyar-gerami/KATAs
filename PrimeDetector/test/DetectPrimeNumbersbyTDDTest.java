@@ -15,4 +15,10 @@ public class DetectPrimeNumbersbyTDDTest {
         assertFalse(DetectPrimeNumbersbyTDD.detector(0));
     }
 
+    @Test
+    public void testDetector_withNegative() {
+        assertThrows(IllegalArgumentException.class, () -> DetectPrimeNumbersbyTDD.detector(-5));
+    }
+
+
 }
