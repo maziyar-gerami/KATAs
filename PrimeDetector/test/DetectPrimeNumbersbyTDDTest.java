@@ -1,8 +1,13 @@
 public class DetectPrimeNumbersbyTDDTest {
 
     @Test
-    public void testDetector_withPrimeNumbers(){
+    public void testDetector_withPrimeNumbers() {
         assertTrue(DetectPrimeNumbersbyTDD.detector(11));
+    }
+
+    @Test
+    public void testDetector_withNotPrimeNumbers() {
+        assertFalse(DetectPrimeNumbersbyTDD.detector(9));
     }
 
     @Test
