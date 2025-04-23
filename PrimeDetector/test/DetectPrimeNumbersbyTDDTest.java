@@ -10,4 +10,9 @@ public class DetectPrimeNumbersbyTDDTest {
         assertFalse(DetectPrimeNumbersbyTDD.detector(1));
     }
 
+    @Test
+    public void testDetector_withZero() {
+        assertFalse(DetectPrimeNumbersbyTDD.detector(0));
+    }
+
 }
