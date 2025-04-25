@@ -3,6 +3,7 @@ import java.util.Stack;
 public class CheckParenthesesBalance {
 
     public static boolean BalanceChecker(String input) {
+        if (input == null) return false;
         Stack<Character> stack = new Stack<>();
         for (char ch : input.toCharArray()) {
             if (ch == '(' || ch == '[' || ch == '{') {
