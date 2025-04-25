@@ -1,3 +1,11 @@
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
+
 public class CheckParenthesesBalanceTest {
 
+    @Test
+    public void testBalanceChecker_withBalanceString() {
+        assertTrue(CheckParenthesesBalance.BalanceChecker("()"));
+    }
 }
