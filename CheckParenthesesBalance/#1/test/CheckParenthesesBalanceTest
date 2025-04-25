@@ -8,4 +8,10 @@ public class CheckParenthesesBalanceTest {
     public void testBalanceChecker_withBalanceString() {
         assertTrue(CheckParenthesesBalance.BalanceChecker("()"));
     }
+
+    @Test
+    public void testBalanceChecker_withEmptyString() {
+        assertTrue(CheckParenthesesBalance.BalanceChecker(""));
+    }
+
 }
