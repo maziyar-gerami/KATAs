@@ -1,0 +1,51 @@
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+public class CheckParenthesesBalanceTest {
+
+    @Test
+    public void testBalanceChecker_withBalanceString() {
+        assertTrue(CheckParenthesesBalance.BalanceChecker("()"));
+    }
+
+    @Test
+    public void testBalanceChecker_withEmptyString() {
+        assertTrue(CheckParenthesesBalance.BalanceChecker(""));
+    }
+
+    @Test
+    public void testBalanceChecker_withImbalanceString() {
+        assertFalse(CheckParenthesesBalance.BalanceChecker(")("));
+    }
+
+    @Test
+    public void testBalanceChecker_withOnlyOpen() {
+        assertFalse(CheckParenthesesBalance.BalanceChecker("("));
+    }
+
+    @Test
+    public void testBalanceChecker_withOnlyClose() {
+        assertFalse(CheckParenthesesBalance.BalanceChecker(")"));
+    }
+
+    @Test
+    public void testBalanceChecker_withBalanceString() {
+        assertTrue(Check_Parentheses_Balance.BalanceChecker("{[()]}"));
+    }
+
+    @Test
+    public void testBalanceChecker_withImbalanceString(){
+       assertFalse(Check_Parentheses_Balance.BalanceChecker("([)]"));
+    }
+
+    @Test
+    public void testBalanceChecker_withChars() {
+        assertTrue(Check_Parentheses_Balance.BalanceChecker("a(b[c]{d}e)f"));
+    }
+
+    @Test
+    public void testBalanceChecker_withNullInput() {
+        assertFalse(Check_Parentheses_Balance.BalanceChecker(null));
+    }
+}
