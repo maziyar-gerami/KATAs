@@ -11,6 +11,29 @@ public class BlockLabelDemo {
                 }
             }
         }
+
+        final int k =10;
+
+        String s = switch (k) {
+            case 10 -> "10";               
+            case 11 -> "11";    
+            default -> {
+                int x =0;
+                yield "other";
+            }
+
+        };
+
+        String s1 = switch (k) {
+            case 10 : yield "10";               
+            case 11 : yield "11";    
+            default :
+                int x =0;
+                yield "other";
+        
+        };
+
+        System.out.println(s1);
     }
 
 }
