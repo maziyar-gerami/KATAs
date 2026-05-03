@@ -8,13 +8,11 @@ public class TextAnalyze implements Analyzeable {
     public TextAnalyze(String text) {
         this.text = text;
         this.history = new LinkedList<>();
-        saveHistory(text);
     }
 
     @Override
     public long count() {
         saveHistory(Action.COUNT_CHARS.getName());
-        saveHistory(text);
         return text.length();
     }
 
