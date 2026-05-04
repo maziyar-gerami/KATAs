@@ -1,6 +1,6 @@
 public enum Action {
-    COUNT_CHARS("count chars"),
-    COUNT_WORDS("count words"),
+    COUNT_CHARS("chars"),
+    COUNT_WORDS("words"),
     REVERSE("reverse"),
     UPPERCASE("upercase"),
     LOWERCASE("lowercase");

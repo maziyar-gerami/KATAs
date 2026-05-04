@@ -1,14 +1,14 @@
 public interface Analyzeable {
 
-    long count();
+    void count();
 
-    long words();
+    void words();
 
-    String reverse();
+    void reverse();
 
-    String upercase();
+    void upercase();
 
-    String lowercase();
+    void lowercase();
 
     void stats();
     

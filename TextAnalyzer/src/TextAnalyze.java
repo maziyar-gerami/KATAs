@@ -4,42 +4,53 @@ public class TextAnalyze implements Analyzeable {
 
     private String text;
     private LinkedList<String> history;
+
+    public void setText(String text) {
+        this.text = text;
+    }
+
     
+    
+    public TextAnalyze() {
+        this.history = new LinkedList<>();
+    }
+
+
     public TextAnalyze(String text) {
         this.text = text;
         this.history = new LinkedList<>();
     }
 
     @Override
-    public long count() {
+    public void count() {
         saveHistory(Action.COUNT_CHARS.getName());
-        return text.length();
+        System.out.println(text.length());
     }
 
     @Override
-    public long words() {
+    public void words() {
         saveHistory(Action.COUNT_WORDS.getName());
         String[] wordsArray = text.trim().split("\\s+");
-        return wordsArray.length;
+        System.out.println(wordsArray.length);
     }
 
     @Override
-    public String reverse() {
+    public void reverse() {
         saveHistory(Action.REVERSE.getName());
         StringBuilder stringBuilder = new StringBuilder(text);
-        return stringBuilder.reverse().toString();
+        System.out.println(stringBuilder.reverse().toString());
     }
 
     @Override
-    public String upercase() {
+    public void upercase() {
         saveHistory(Action.UPPERCASE.getName());
-        return text.toUpperCase();
+        System.out.println(text.toUpperCase());
     }
 
     @Override
-    public String lowercase() {
+    public void lowercase() {
         saveHistory(Action.LOWERCASE.getName());
-        return text.toLowerCase();
+        System.out.println(text.toLowerCase());
     }
 
     @Override
