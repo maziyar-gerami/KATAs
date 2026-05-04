@@ -3,7 +3,9 @@ public enum Action {
     COUNT_WORDS("words"),
     REVERSE("reverse"),
     UPPERCASE("upercase"),
-    LOWERCASE("lowercase");
+    LOWERCASE("lowercase"),
+    STATS("stats"),
+    DEFAULT("default");
 
     private final String name;
 

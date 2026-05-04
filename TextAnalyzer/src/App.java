@@ -10,7 +10,7 @@ public class App {
                 System.out.println("Please enter a text:");
                 statement = scanner.nextLine();
                 TextAnalyze textAnalyze = new TextAnalyze();
-                Command command = new Command(statement, textAnalyze);
+                AnayzeHelper command = new AnayzeHelper(statement, textAnalyze);
                 command.execute();
             }while(!statement.equalsIgnoreCase("exit"));
         }

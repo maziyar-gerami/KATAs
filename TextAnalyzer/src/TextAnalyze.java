@@ -8,9 +8,7 @@ public class TextAnalyze implements Analyzeable {
     public void setText(String text) {
         this.text = text;
     }
-
-    
-    
+ 
     public TextAnalyze() {
         this.history = new LinkedList<>();
     }
