@@ -1,18 +1,52 @@
-## Getting Started
+# Text Analyzer (Java)
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+A simple command-based text analyzer written in Java.
+This project demonstrates basic OOP design, enums, command parsing, and text processing in a console application.
 
-## Folder Structure
+## Features
 
-The workspace contains two folders by default, where:
+Supported commands:
+- COUNT_CHARS → count total characters
+- COUNT_WORDS → count number of words
+- UPPERCASE → convert text to uppercase
+- LOWERCASE → convert text to lowercase
+- REVERSE → reverse the text
+- STATS → show simple text statistics
+- EXIT → exit the application
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+## Project Structure
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+src/
+  Main.java
+  Command.java
+  Action.java
+  TextAnalyzer.java
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+## Example
 
-## Dependency Management
+Input:
+Hello world from Java
+COUNT_WORDS
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+Output:
+Words count: 4
+
+## Requirements
+
+Java 17+
+
+## Run
+
+javac *.java
+java Main
+
+## Learning Goals
+
+- Java enums
+- switch expressions
+- console input handling
+- text processing
+
+## License
+
+Free for learning and experimentation.
