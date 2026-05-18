@@ -4,11 +4,11 @@ import java.util.List;
 
 public class TransactionSummary {
 
-    int totalBalanceChange;
-    int depositCount;
-    int withdrawalCount;
-    int largestDeposit;
-    int largestWithdrawal;
+    private final int totalBalanceChange;
+    private final int depositCount;
+    private final int withdrawalCount;
+    private final int largestDeposit;
+    private final int largestWithdrawal;
 
     private TransactionSummary(int totalBalanceChange, int depositCount, int withdrawalCount, int largestDeposit, int largestWithdrawal) {
         this.totalBalanceChange = totalBalanceChange;
@@ -19,7 +19,7 @@ public class TransactionSummary {
     }
 
     public static TransactionSummary analyzeTransactions(List<Integer> transactions){
-        return new TransactionSummary(computeTotalBalanceChange(transactions), depositCount(transactions), computeWithdrawalCount(transactions), computeLargestDeposit(transactions), computeLargestWithdrawal(transactions));
+        return new TransactionSummary(computeTotalBalanceChange(transactions), computeDepositCount(transactions), computeWithdrawalCount(transactions), computeLargestDeposit(transactions), computeLargestWithdrawal(transactions));
 
     }
 
@@ -30,7 +30,7 @@ public class TransactionSummary {
         return total;
     }
 
-    private static int depositCount(List<Integer> transactions){
+    private static int computeDepositCount(List<Integer> transactions){
         int count = 0;
         for (Integer transaction : transactions) 
             if (transaction > 0) count++;
