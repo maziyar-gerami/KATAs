@@ -73,5 +73,3 @@ Sorting must be stable and use `Comparator` chaining.
 #### ✅ `Map<String, Double> averagePerformanceByDepartment(List<Employee> employees)`
 
 Return average performance score per department.
-
-Example:
