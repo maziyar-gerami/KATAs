@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.NullAndEmptySource;
 
-import java.util.Set;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -13,7 +13,7 @@ class DuplicateWordDetectorTest {
     @Test
     void duplicateWordDetector_whenEverythingIsOk_countWords(){
         String str = "Java, is great! and java is powerful!";
-        Set<String> expectedResult = Set.of("java", "is");
+        var expectedResult = List.of("java", "is");
 
         var result = DuplicateWordDetector.findDuplicates(str);
 
@@ -26,7 +26,7 @@ class DuplicateWordDetectorTest {
 
         var result = DuplicateWordDetector.findDuplicates(text);
 
-        assertEquals(Set.of(), result);
+        assertEquals(List.of(), result);
     }
 
 }
