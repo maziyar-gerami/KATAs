@@ -23,7 +23,7 @@ Requirements
 
 Create a class named:
 
-DuplicateWordDetector
+service.DuplicateWordDetector
 
 Implement the following method:
 
@@ -113,7 +113,7 @@ src
 ├── main
 │   └── java
 │       └── kata
-│           └── DuplicateWordDetector.java
+│           └── service.DuplicateWordDetector.java
 │
 └── test
 └── java
