@@ -8,30 +8,30 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class AngramDetectorTest {
+class AnagramDetectorTest {
 
     @ParameterizedTest
     @MethodSource("nullInputProvider")
     void angramDetectorTest_whenOneOfTheInputsIsNull_thenReturnFalse(String in1, String in2) {
-        assertFalse(AngramDetector.isAnagram(in1, in2));
+        assertFalse(AnagramDetector.isAnagram(in1, in2));
     }
 
     @ParameterizedTest
     @MethodSource("differentInputSizeProvider")
     void angramDetectorTest_whenTheLengthOfInputsAreDifferent_thenReturnFalse(String firstInput, String secondInput) {
-        assertFalse(AngramDetector.isAnagram(firstInput, secondInput));
+        assertFalse(AnagramDetector.isAnagram(firstInput, secondInput));
     }
 
     @ParameterizedTest
     @MethodSource("inCorrectInputProvider")
     void angramDetectorTest_whenIsNotAngram_thenReturnFalse(String firstInput, String secondInput) {
-        assertFalse(AngramDetector.isAnagram(firstInput, secondInput));
+        assertFalse(AnagramDetector.isAnagram(firstInput, secondInput));
     }
 
     @ParameterizedTest
     @MethodSource("correctInputProvider")
     void angramDetectorTest_whenIsAngram_thenReturnTrue(String firstInput, String secondInput) {
-        assertTrue(AngramDetector.isAnagram(firstInput, secondInput));
+        assertTrue(AnagramDetector.isAnagram(firstInput, secondInput));
     }
 
     public static Stream<Arguments> nullInputProvider() {
