@@ -32,6 +32,8 @@ This is a classic interview problem that appears frequently in senior backend an
 Create a class named:
 
 ```java
+import service.TopKFrequentElements;
+
 TopKFrequentElements
 ```
 
