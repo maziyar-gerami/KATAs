@@ -22,22 +22,41 @@ class TopKFrequentElementsTest {
 
     @ParameterizedTest
     @NullAndEmptySource
-    void topKFrequent_whenKIsGreaterThanNumbersListSize_returnTheOriginalList(List<Integer> numbers) {
+    void topKFrequent_whenNumbersIsEmpty_returnTheOriginalList(List<Integer> numbers) {
         var result = TopKFrequentElements.findTopK(numbers, 3);
         assertEquals(List.of(), result);
     }
 
     @ParameterizedTest
     @MethodSource("kIsEqualOrGreaterThanDistinctNumbersProvider")
-    void topKFrequent_whenNumbersListNotValid_returnEmptyList(List<Integer> numbers, int k) {
+    void topKFrequent_whenKIsGreaterThanNumbersListSize_returnEmptyList(List<Integer> numbers, int k) {
         var expectedResult = List.of(1, 2, 3);
         var result = TopKFrequentElements.findTopK(numbers, k);
         assertEquals(expectedResult, result);
     }
 
+    @ParameterizedTest
+    @MethodSource("distinctNumbersProvider")
+    void topKFrequent_whenNumbersListNotValid_returnCorrectResult(List<Integer> numbers, int k, List<Integer> expected) {
+        var result = TopKFrequentElements.findTopK(numbers, k);
+        assertEquals(expected, result);
+    }
+
     public static Stream<Arguments> kIsEqualOrGreaterThanDistinctNumbersProvider() {
         return Stream.of(Arguments.of(List.of(1, 2, 3), 3),
                 Arguments.of(List.of(1, 2, 3), 5),
-                Arguments.of(List.of(1, 2, 3, 2, 3), 3));
+                Arguments.of(List.of(1, 2, 3, 4, 5), 3),
+                Arguments.of(List.of(1, 1, 2, 2, 3, 3), 5));
+    }
+
+    public static Stream<Arguments> distinctNumbersProvider() {
+        return Stream.of(Arguments.of(List.of(1, 2, 3, 3, 3), 3, List.of(3, 1, 2)),
+                Arguments.of(List.of(1, 2, 2, 2, 3, 3, 3), 3, List.of(2, 3, 1)),
+                Arguments.of(List.of(3, 3, 1, 1, 2, 2), 3, List.of(1, 2, 3)),
+                Arguments.of(List.of(1, 2, 2, 2, 3, 3, 3), 1, List.of(2)),
+                Arguments.of(List.of(1, -2, -2, -2, -3, -3, -3), 3, List.of(-3, -2, 1)),
+                Arguments.of(List.of(1, 2, 3), 5, List.of(1, 2, 3)),
+                Arguments.of(List.of(4, 4, 1, 1, 2, 2), 2, List.of(1, 2)),
+                Arguments.of(List.of(-1, -1, -2, -2, -2, 3), 2, List.of(-2, -1)));
     }
 }
