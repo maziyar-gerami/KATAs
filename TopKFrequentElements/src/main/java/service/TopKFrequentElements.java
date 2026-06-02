@@ -3,7 +3,6 @@ package service;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
-import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
@@ -24,28 +23,18 @@ public class TopKFrequentElements {
             return numbers
                     .stream()
                     .sorted()
-                    .limit(k).toList();
+                    .limit(k)
+                    .toList();
 
         return numbers.stream()
                 .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
                 .entrySet()
                 .stream()
-                .sorted(new ListComparator())
+                .sorted(Map.Entry.<Integer, Long>comparingByValue()
+                        .reversed()
+                        .thenComparing(Map.Entry::getKey))
                 .limit(k)
                 .map(Map.Entry::getKey)
                 .toList();
-    }
-
-    static class ListComparator implements Comparator<Map.Entry<Integer, Long>> {
-
-
-        @Override
-        public int compare(Map.Entry<Integer, Long> t1, Map.Entry<Integer, Long> t2) {
-
-            return Map.Entry.<Integer, Long>comparingByValue()
-                    .reversed()
-                    .thenComparing(Map.Entry::getKey)
-                    .compare(t1, t2);
-        }
     }
 }
