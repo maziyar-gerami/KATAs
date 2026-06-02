@@ -21,7 +21,10 @@ public class TopKFrequentElements {
 
         var distinctNumbers = numbers.stream().distinct().toList();
         if (distinctNumbers.size() == numbers.size())
-            return numbers.stream().limit(k).toList();
+            return numbers
+                    .stream()
+                    .sorted()
+                    .limit(k).toList();
 
         return numbers.stream()
                 .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))

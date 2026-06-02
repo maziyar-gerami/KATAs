@@ -37,7 +37,7 @@ class TopKFrequentElementsTest {
 
     @ParameterizedTest
     @MethodSource("distinctNumbersProvider")
-    void topKFrequent_whenNumbersListNotValid_returnCorrectResult(List<Integer> numbers, int k, List<Integer> expected) {
+    void topKFrequent_whenNumbersListValid_returnCorrectResult(List<Integer> numbers, int k, List<Integer> expected) {
         var result = TopKFrequentElements.findTopK(numbers, k);
         assertEquals(expected, result);
     }
@@ -57,6 +57,7 @@ class TopKFrequentElementsTest {
                 Arguments.of(List.of(1, -2, -2, -2, -3, -3, -3), 3, List.of(-3, -2, 1)),
                 Arguments.of(List.of(1, 2, 3), 5, List.of(1, 2, 3)),
                 Arguments.of(List.of(4, 4, 1, 1, 2, 2), 2, List.of(1, 2)),
+                Arguments.of(List.of(3, 1, 2), 2, List.of(1, 2)),
                 Arguments.of(List.of(-1, -1, -2, -2, -2, 3), 2, List.of(-2, -1)));
     }
 }
