@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
+import java.util.PriorityQueue;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class MeetingRoomScheduler {
@@ -32,22 +33,25 @@ public class MeetingRoomScheduler {
 
         for (int i = 1; i < orderedMeeting.size(); i++)
             if (orderedMeeting.get(i).start() < orderedMeeting.get(i - 1).end())
-                return Optional.of(orderedMeeting.get(i));
+                return Optional.of(orderedMeeting.get(i - 1));
         return Optional.empty();
     }
 
     static int minimumRoomsRequired(List<Meeting> meetings) {
-        int rooms = 1;
-        if (meetings.isEmpty() || meetings.size() == 1)
-            return rooms;
+        if (meetings == null || meetings.isEmpty())
+            return 0;
 
+        if (meetings.size() == 1)
+            return 1;
         var orderedMeeting = getOrderedAndValidMeetings(meetings);
 
-        for (int i = 1; i < orderedMeeting.size(); i++)
-            if (orderedMeeting.get(i).start() < orderedMeeting.get(i - 1).end())
-                rooms++;
-
-        return rooms;
+        var endings = new PriorityQueue<Integer>();
+        for (int i = 0; i < orderedMeeting.size(); i++) {
+            if (i > 0 && orderedMeeting.get(i).start() >= endings.peek())
+                endings.poll();
+            endings.add(orderedMeeting.get(i).end());
+        }
+        return endings.size();
     }
 
     private static Meeting validateMeeting(Meeting m) {

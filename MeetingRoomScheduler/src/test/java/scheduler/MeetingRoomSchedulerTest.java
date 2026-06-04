@@ -44,7 +44,7 @@ class MeetingRoomSchedulerTest {
 
     @ParameterizedTest
     @MethodSource("firstConflictListProvider")
-    void findFirstConflict_whenMeetingListHaveConflict_thenThrowIllegalArgumentException(List<Meeting> meetings, Meeting expectedFirstConflict) {
+    void findFirstConflict_whenMeetingListHaveConflict_thenFindFirst(List<Meeting> meetings, Meeting expectedFirstConflict) {
         var result = findFirstConflict(meetings);
         assertEquals(expectedFirstConflict, result.get());
     }
@@ -65,10 +65,19 @@ class MeetingRoomSchedulerTest {
 
     public static Stream<Arguments> countRoomsProvider() {
         return Stream.of(
+                Arguments.of(List.of(), 0),
                 Arguments.of(List.of(new Meeting(1, 2)), 1),
                 Arguments.of(List.of(new Meeting(1, 2), new Meeting(2, 3)),1),
                 Arguments.of(List.of(new Meeting(2, 3), new Meeting(1, 2)),1),
-                Arguments.of(List.of(new Meeting(2, 3), new Meeting(1, 2), new Meeting(2,4)), 2)
+                Arguments.of(List.of(new Meeting(2, 3), new Meeting(1, 2), new Meeting(2,4)), 2),
+                Arguments.of(List.of(new Meeting(2, 3), new Meeting(1, 2), new Meeting(1,10)), 2),
+                Arguments.of(
+                        List.of(
+                                new Meeting(1, 2),
+                                new Meeting(1, 2),
+                                new Meeting(1, 2),
+                                new Meeting(10, 11)
+                        ), 3)
         );
     }
 
@@ -99,8 +108,8 @@ class MeetingRoomSchedulerTest {
 
     public static Stream<Arguments> firstConflictListProvider() {
         return Stream.of(
-                Arguments.of(List.of(new Meeting(1, 3), new Meeting(2, 4)), new Meeting(2, 4)),
-                Arguments.of(List.of(new Meeting(1, 2), new Meeting(2, 4), new Meeting(1, 3), new Meeting(5, 7)), new Meeting(1, 3))
+                Arguments.of(List.of(new Meeting(1, 3), new Meeting(2, 4)), new Meeting(1, 3)),
+                Arguments.of(List.of(new Meeting(1, 2), new Meeting(2, 4), new Meeting(1, 3), new Meeting(5, 7)), new Meeting(1, 2))
         );
     }
 
