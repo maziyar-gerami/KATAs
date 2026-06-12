@@ -1,0 +1,7 @@
+package departmentstatisticbuilder;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+class ServiceTest {
+
+}
