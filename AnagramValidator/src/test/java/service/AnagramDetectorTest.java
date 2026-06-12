@@ -23,7 +23,7 @@ class AnagramDetectorTest {
     }
 
     @ParameterizedTest
-    @MethodSource("inCorrectInputProvider")
+    @MethodSource("incorrectInputProvider")
     void angramDetectorTest_whenIsNotAngram_thenReturnFalse(String firstInput, String secondInput) {
         assertFalse(AnagramDetector.isAnagram(firstInput, secondInput));
     }
@@ -46,7 +46,7 @@ class AnagramDetectorTest {
                 Arguments.of("1", "aa"));
     }
 
-    public static Stream<Arguments> inCorrectInputProvider() {
+    public static Stream<Arguments> incorrectInputProvider() {
         return Stream.of(Arguments.of("hello", "world"),
                 Arguments.of("java", "javascript"),
                 Arguments.of("abc", "abcd"));
